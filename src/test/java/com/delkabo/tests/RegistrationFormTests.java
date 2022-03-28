@@ -22,7 +22,6 @@ public class RegistrationFormTests {
 
     @Test
     void successFillTest() {
-        open("http://github.com");
         registrationPage.openPage()
                 .setFirstName(firstname)
                 .setLastName(lastName)
