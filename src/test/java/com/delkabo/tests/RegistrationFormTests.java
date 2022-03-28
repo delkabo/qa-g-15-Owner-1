@@ -5,6 +5,8 @@ import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import com.delkabo.pages.RegistrationPage;
 
+import static com.codeborne.selenide.Selenide.open;
+
 public class RegistrationFormTests {
 
     RegistrationPage registrationPage = new RegistrationPage();
@@ -20,6 +22,7 @@ public class RegistrationFormTests {
 
     @Test
     void successFillTest() {
+        open("http://github.com");
         registrationPage.openPage()
                 .setFirstName(firstname)
                 .setLastName(lastName)
