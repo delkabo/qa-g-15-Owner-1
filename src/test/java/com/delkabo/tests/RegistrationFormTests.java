@@ -1,6 +1,8 @@
 package com.delkabo.tests;
 
 import com.codeborne.selenide.Configuration;
+import com.delkabo.config.WebDriverConfig;
+import org.aeonbits.owner.ConfigFactory;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import com.delkabo.pages.RegistrationPage;
@@ -9,6 +11,7 @@ import static com.codeborne.selenide.Selenide.open;
 
 public class RegistrationFormTests {
 
+
     RegistrationPage registrationPage = new RegistrationPage();
     String firstname = "Kamil";
     String lastName = "Syapukov";
@@ -16,8 +19,11 @@ public class RegistrationFormTests {
 
     @BeforeAll
     static void beforeAll() {
-        Configuration.baseUrl = "https://demoqa.com";
-        Configuration.browserSize = "1920x1080";
+        WebDriverConfig config = ConfigFactory
+                .create(WebDriverConfig.class, System.getProperties());
+
+        Configuration.baseUrl = config.getBaseUrl();
+        Configuration.browserSize = config.getResolution();
     }
 
     @Test
