@@ -2,24 +2,24 @@ package com.delkabo.config;
 
 import org.aeonbits.owner.Config;
 
+import java.net.URL;
+
 public interface WebDriverConfig extends Config {
 
     @Key("baseUrl")
-    @DefaultValue("https://demoqa.com")
+    @DefaultValue("https://github.com")
     String getBaseUrl();
-
-    @Key("baseResolution")
-    @DefaultValue("1920x1080")
-    String getResolution();
 
     @Key("browser")
     @DefaultValue("CHROME")
     Browser getBrowser();
 
-    @Key("version")
-    String version();
+    @Key("false")
+    @DefaultValue("false")
+    boolean isRemote();
 
-    @Key("remote")
-    Boolean remote();
+    @Key("remoteUrl")
+    URL getRemoteUrl();
+
 
 }
