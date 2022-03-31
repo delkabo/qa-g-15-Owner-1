@@ -9,6 +9,18 @@ repositories {
     mavenCentral()
 }
 
+tasks.withType(Javadoc){
+    options.encoding = 'UTF-8'
+}
+
+compileJava{
+    options.encoding = "UTF-8"
+}
+
+compileTestJava{
+    options.encoding = "UTF-8"
+}
+
 dependencies {
     testImplementation(
             'org.junit.jupiter:junit-jupiter-api:5.8.2',

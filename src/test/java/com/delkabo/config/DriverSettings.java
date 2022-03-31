@@ -10,6 +10,9 @@ import org.openqa.selenium.remote.DesiredCapabilities;
 import java.io.ObjectInputFilter;
 import java.util.function.Supplier;
 
+import static com.codeborne.selenide.Browsers.CHROME;
+import static com.codeborne.selenide.Browsers.FIREFOX;
+
 public class DriverSettings {
 
     public static void configure() {
@@ -18,11 +21,19 @@ public class DriverSettings {
 
         ProjectConfig config = ConfigFactory.create(ProjectConfig.class, System.getProperties());
 
-        if(config.remoteProp() == true){
-            Configuration.remote = "https://user1:1234@selenoid.autotests.cloud/wd/hub/";
+        Configuration.browser = config.getBrowser().toString();
+        capabilities.setCapability("browserVersion", config.versionBrowser());
+
+        if(config.remoteUrl() != ""){
+            Configuration.remote = config.remoteUrl();
             capabilities.setCapability("enableVNC", true);
             capabilities.setCapability("enableVideo", true);
        }
+//        if(config.remoteProp() == true){
+//            Configuration.remote = "https://user1:1234@selenoid.autotests.cloud/wd/hub/";
+//            capabilities.setCapability("enableVNC", true);
+//            capabilities.setCapability("enableVideo", true);
+//       }
         Configuration.browserCapabilities = capabilities;
     }
 
