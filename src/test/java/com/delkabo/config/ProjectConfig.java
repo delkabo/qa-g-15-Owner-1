@@ -4,7 +4,7 @@ import org.aeonbits.owner.Config;
 import org.openqa.selenium.WebDriver;
 
 @Config.Sources({
-       "classpath:${remoteProp}.properties"
+       "classpath:${env}.properties"
 })
 public interface ProjectConfig extends Config {
 
@@ -12,10 +12,8 @@ public interface ProjectConfig extends Config {
     String remoteUrl();
 
     @Key("browser")
-    @DefaultValue("FIREFOX")
     Browser getBrowser();
 
     @Key("versionBrowser")
-    @DefaultValue("Latest")
     String versionBrowser();
 }

@@ -4,7 +4,7 @@ import org.aeonbits.owner.Config;
 
 import java.net.URL;
 
-public interface WebDriverConfig extends Config {
+//public interface WebDriverConfig extends Config {
 
 //    @Key("baseUrl")
 //    @DefaultValue("https://github.com")
@@ -22,4 +22,4 @@ public interface WebDriverConfig extends Config {
 //    URL getRemoteUrl();
 
 
-}
+//}
